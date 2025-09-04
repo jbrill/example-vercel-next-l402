@@ -1,13 +1,16 @@
 import { NextRequest } from 'next/server';
-import { createChallengeHandler, createRestLightningClient } from 'next-l402/dist';
+import { createChallengeHandler, createRestLightningClient, createMockLightningClient } from 'next-l402/dist';
 import { L402_CONFIG } from '../../../../config';
 
-const lightningClient = createRestLightningClient({
-  host: L402_CONFIG.LND_REST_HOST,
-  macaroon: process.env.LND_MACAROON!,
-  cert: process.env.LND_CERT!,
-  rejectUnauthorized: false,
-});
+// Use real Lightning client if credentials are provided, otherwise use mock
+const lightningClient = process.env.LND_MACAROON 
+  ? createRestLightningClient({
+      host: L402_CONFIG.LND_REST_HOST,
+      macaroon: process.env.LND_MACAROON,
+      cert: process.env.LND_CERT,
+      rejectUnauthorized: false,
+    })
+  : createMockLightningClient();
 
 const challengeHandler = createChallengeHandler({
   lightning: lightningClient,
