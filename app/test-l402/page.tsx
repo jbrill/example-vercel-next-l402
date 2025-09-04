@@ -165,7 +165,7 @@ For the full L402 flow, use "Test Protected Endpoint" instead.`);
         }}>
           <h2 style={{ margin: '0 0 15px 0', color: '#856404' }}>Step 2: Enter Payment Preimage</h2>
           <p style={{ margin: '0 0 15px 0', color: '#856404' }}>
-            In a real app, you'd pay the Lightning invoice and get a preimage. For demo purposes, 
+            In a real app, you&apos;d pay the Lightning invoice and get a preimage. For demo purposes, 
             enter any 64-character hex string:
           </p>
           <input

@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { createChallengeHandler, createRestLightningClient, createMockLightningClient } from 'next-l402/dist';
+import { createChallengeHandler, createRestLightningClient, createMockLightningClient } from 'next-l402';
 import { L402_CONFIG } from '../../../../config';
 
 // Use real Lightning client if credentials are provided, otherwise use mock
